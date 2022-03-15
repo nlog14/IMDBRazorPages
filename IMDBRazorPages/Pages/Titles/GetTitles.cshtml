@@ -1,0 +1,62 @@
+﻿@page
+@model IMDBRazorPages.Pages.Titles.GetTitlesModel
+
+@{
+    ViewData["Title"] = "GetTitles";
+}
+
+<h1>All Titles</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th> Title ID </th>
+            <th> Content Type </th>
+            <th> Primary Title </th>
+            <th> Original Title </th>
+            <th> Adult Movie </th>
+            <th> Start Year </th>
+            <th> End Year </th>
+            <th> Run Time (Minutes) </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Title) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.content_type_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.primary_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.original_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_adult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.start_year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.end_year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.runtime_minutes)
+        </td>
+        <td>
+            <a asp-page="./EditTitle" asp-route-id="@item.title_id">Edit</a> |
+            <a asp-page="./TitleDetails" asp-route-id="@item.title_id">Details</a> |
+            <a asp-page="./DeleteTitle" asp-route-id="@item.title_id">Delete</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

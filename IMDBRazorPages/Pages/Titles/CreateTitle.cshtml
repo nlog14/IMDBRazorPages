@@ -1,0 +1,69 @@
+﻿@page
+@model IMDBRazorPages.Pages.Titles.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Title</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title.title_id" class="control-label"></label>
+                <input asp-for="Title.title_id" class="form-control" />
+                <span asp-validation-for="Title.title_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.content_type_id" class="control-label"></label>
+                <input asp-for="Title.content_type_id" class="form-control" />
+                <span asp-validation-for="Title.content_type_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.primary_title" class="control-label"></label>
+                <input asp-for="Title.primary_title" class="form-control" />
+                <span asp-validation-for="Title.primary_title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.original_title" class="control-label"></label>
+                <input asp-for="Title.original_title" class="form-control" />
+                <span asp-validation-for="Title.original_title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.is_adult" class="control-label"></label>
+                <input asp-for="Title.is_adult" class="form-control" />
+                <span asp-validation-for="Title.is_adult" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.start_year" class="control-label"></label>
+                <input asp-for="Title.start_year" class="form-control" />
+                <span asp-validation-for="Title.start_year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.end_year" class="control-label"></label>
+                <input asp-for="Title.end_year" class="form-control" />
+                <span asp-validation-for="Title.end_year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.runtime_minutes" class="control-label"></label>
+                <input asp-for="Title.runtime_minutes" class="form-control" />
+                <span asp-validation-for="Title.runtime_minutes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./GetTitles">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

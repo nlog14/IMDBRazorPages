@@ -1,0 +1,46 @@
+﻿@page
+@model IMDBRazorPages.Pages.Talents.GetTalentsModel
+
+@{
+    ViewData["Title"] = "GetTalents";
+}
+
+<h1>Get Talent</h1>
+
+<p>
+    <a asp-page="CreateTalent">Add New Talent</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th> Talent ID </th>
+        <th> Primary Name </th>
+        <th> Birth Year </th>
+        <th> Death Year </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Talent) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.talent_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.primary_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.birth_year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.death_year)
+        </td>
+        <td>
+            <a asp-page="./EditTalent" asp-route-id="@item.talent_id">Edit</a> |
+            <a asp-page="./TalentDetails" asp-route-id="@item.talent_id">Details</a> |
+            <a asp-page="./DeleteTalent" asp-route-id="@item.talent_id">Delete</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
